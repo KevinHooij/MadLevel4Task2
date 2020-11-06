@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.navigation.fragment.findNavController
 
 /**
@@ -23,6 +24,13 @@ class PlayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+    }
+
+    private fun playScissors(chosen : EditText){
+        val play = Play(
+            playInText = getString(R.string.scissors_txt)
+        )
 
     }
 }
