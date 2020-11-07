@@ -14,4 +14,6 @@
     <string name="welcome_txt">Welcome</string>
     <string name="instructions_txt">Select rock, paper or scissors at the bottom to play</string>
     <string name="scissors_txt">Scissors</string>
+    <string name="rock_txt">Rock</string>
+    <string name="paper_txt">Paper</string>
 </resources>
