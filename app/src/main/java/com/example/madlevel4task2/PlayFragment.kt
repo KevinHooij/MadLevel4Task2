@@ -43,12 +43,26 @@ class PlayFragment : Fragment() {
 
     fun initViews(){
         btnScissor.setOnClickListener{playScissors()}
+        btnPaper.setOnClickListener{playPaper()}
+        btnRock.setOnClickListener{playRock()}
     }
 
     fun playScissors(){
         ivPlayer.setImageResource(R.drawable.scissors)
 
         var playerAttack = Play.Attack.SCISSORS
+    }
+
+    fun playRock(){
+        ivPlayer.setImageResource(R.drawable.rock)
+
+        var playerAttack = Play.Attack.ROCK
+    }
+
+    fun playPaper(){
+        ivPlayer.setImageResource(R.drawable.paper)
+
+        var playerAttack = Play.Attack.PAPER
     }
 
 
