@@ -4,10 +4,12 @@ import android.content.Context
 import androidx.room.Database;
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
 
 import kotlin.jvm.Volatile;
 
 @Database(entities = [Play::class], version = 1, exportSchema = false)
+@TypeConverters(Converters::class)
 abstract class PlayRoomDatabase : RoomDatabase() {
 
     abstract fun playDao(): PlayDao

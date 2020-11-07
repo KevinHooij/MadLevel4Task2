@@ -8,6 +8,7 @@ import androidx.room.Query
 @Dao
 
 interface PlayDao{
+
     @Query("SELECT * FROM play_table")
     suspend fun getAllPlays(): List<Play>
 
@@ -19,4 +20,6 @@ interface PlayDao{
 
     @Query("DELETE FROM play_table")
     suspend fun deleteAllPlays()
+
+
 }

@@ -23,6 +23,9 @@ class PlayFragment : Fragment() {
     private val plays = arrayListOf<Play>()
     private val playAdapter = PlayAdapter(plays)
 
+    lateinit var playerAttack: Play.Attack
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,6 +36,19 @@ class PlayFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        playRepository = PlayRepository(requireContext())
+        initViews()
+    }
+
+    fun initViews(){
+        btnScissor.setOnClickListener{playScissors()}
+    }
+
+    fun playScissors(){
+        ivPlayer.setImageResource(R.drawable.scissors)
+
+        var playerAttack = Play.Attack.SCISSORS
     }
 
 

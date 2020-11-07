@@ -2,6 +2,8 @@ package com.example.madlevel4task2
 
 import androidx.room.TypeConverter
 import java.util.*
+import com.example.madlevel4task2.Play.Attack
+import com.example.madlevel4task2.Play.Outcome
 
 class Converters {
     @TypeConverter
@@ -19,10 +21,10 @@ class Converters {
     fun fromMove(value: Int?): Play.Attack? {
         return value?.let {
             when (it) {
-                0 -> Play.Attack.ROCK
-                1 -> Play.Attack.PAPER
-                2 -> Play.Attack.SCISSORS
-                else -> Play.Attack.ROCK
+                0 -> Attack.ROCK
+                1 -> Attack.PAPER
+                2 -> Attack.SCISSORS
+                else -> Attack.ROCK
             }
         }
     }
@@ -32,34 +34,34 @@ class Converters {
     fun attackToInt(attack: Play.Attack?): Int? {
         return attack?.let {
             when (it) {
-                Play.Attack.ROCK -> 0
-                Play.Attack.PAPER -> 1
-                Play.Attack.SCISSORS -> 2
+                Attack.ROCK -> 0
+                Attack.PAPER -> 1
+                Attack.SCISSORS -> 2
             }
         }
     }
 
     //Converts Int to Outcome
     @TypeConverter
-    fun fromOutcome(value: Int?): Play.Outcome? {
+    fun fromOutcome(value: Int?): Outcome? {
         return value?.let {
             when (it) {
-                0 -> Play.Outcome.WIN
-                1 -> Play.Outcome.DRAW
-                2 -> Play.Outcome.LOSE
-                else -> Play.Outcome.LOSE
+                0 -> Outcome.WIN
+                1 -> Outcome.DRAW
+                2 -> Outcome.LOSE
+                else -> Outcome.LOSE
             }
         }
     }
 
     //Converts Outcome back to Int
     @TypeConverter
-    fun outcomeToInt(outcome: Play.Outcome?): Int? {
+    fun outcomeToInt(outcome: Outcome?): Int? {
         return outcome?.let {
             when (it) {
-                Play.Outcome.WIN -> -1
-                Play.Outcome.DRAW -> 0
-                Play.Outcome.LOSE -> 1
+                Outcome.WIN -> -1
+                Outcome.DRAW -> 0
+                Outcome.LOSE -> 1
             }
         }
     }
