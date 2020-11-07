@@ -59,9 +59,9 @@ class Converters {
     fun outcomeToInt(outcome: Outcome?): Int? {
         return outcome?.let {
             when (it) {
-                Outcome.WIN -> -1
-                Outcome.DRAW -> 0
-                Outcome.LOSE -> 1
+                Outcome.WIN -> 0
+                Outcome.DRAW -> 1
+                Outcome.LOSE -> 2
             }
         }
     }

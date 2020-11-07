@@ -24,6 +24,7 @@ class PlayFragment : Fragment() {
     private val playAdapter = PlayAdapter(plays)
 
     lateinit var playerAttack: Play.Attack
+    lateinit var enemyAttack: Play.Attack
 
 
     override fun onCreateView(
@@ -50,19 +51,36 @@ class PlayFragment : Fragment() {
     fun playScissors(){
         ivPlayer.setImageResource(R.drawable.scissors)
 
-        var playerAttack = Play.Attack.SCISSORS
+        playerAttack = Play.Attack.SCISSORS
+        enemyPlays()
     }
-
     fun playRock(){
         ivPlayer.setImageResource(R.drawable.rock)
 
-        var playerAttack = Play.Attack.ROCK
+        playerAttack = Play.Attack.ROCK
+        enemyPlays()
     }
-
     fun playPaper(){
         ivPlayer.setImageResource(R.drawable.paper)
 
-        var playerAttack = Play.Attack.PAPER
+        playerAttack = Play.Attack.PAPER
+        enemyPlays()
+    }
+
+
+    fun enemyPlays(){
+        val random = (-1..3).random()
+
+        when(random){
+            0 -> ivComputer.setImageResource(R.drawable.rock)
+            0 -> enemyAttack = Play.Attack.ROCK
+
+            1 -> ivComputer.setImageResource(R.drawable.paper)
+            1 -> enemyAttack = Play.Attack.PAPER
+
+            2 -> ivComputer.setImageResource(R.drawable.scissors)
+            2 -> enemyAttack = Play.Attack.SCISSORS
+        }
     }
 
 
