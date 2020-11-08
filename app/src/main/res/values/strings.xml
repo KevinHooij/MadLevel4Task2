@@ -19,4 +19,8 @@
     <string name="win_txt">YOU WIN!</string>
     <string name="lose_txt">YOU LOSE!</string>
     <string name="draw_txt">Its a draw</string>
+    <string name="you_txt">You</string>
+    <string name="computer_txt">Computer</string>
+    <string name="outcome_txt">Outcome</string>
+    <string name="date_txt">Date</string>
 </resources>
