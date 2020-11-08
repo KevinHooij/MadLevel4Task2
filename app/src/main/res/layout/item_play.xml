@@ -8,50 +8,52 @@
 
 
     <ImageView
-        android:id="@+id/ivPlayer"
-        android:layout_width="96dp"
-        android:layout_height="97dp"
-        android:layout_marginStart="52dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDate"
-        app:layout_constraintVertical_bias="0.03"
-        app:srcCompat="@drawable/paper" />
-
-    <ImageView
-        android:id="@+id/ivEnemy"
+        android:id="@+id/ivEnemyHist"
         android:layout_width="96dp"
         android:layout_height="97dp"
         android:layout_marginEnd="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDate"
-        app:layout_constraintVertical_bias="0.03"
+        app:layout_constraintVertical_bias="0.042"
+        app:srcCompat="@drawable/paper" />
+
+    <ImageView
+        android:id="@+id/ivPlayerHist"
+        android:layout_width="96dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDate"
+        app:layout_constraintVertical_bias="0.042"
         app:srcCompat="@drawable/paper" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
         android:text="@string/vs_txt"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/ivEnemy"
-        app:layout_constraintStart_toEndOf="@+id/ivPlayer"
+        app:layout_constraintEnd_toStartOf="@+id/ivEnemyHist"
+        app:layout_constraintHorizontal_bias="0.676"
+        app:layout_constraintStart_toEndOf="@+id/ivPlayerHist"
         app:layout_constraintTop_toBottomOf="@+id/tvDate"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintVertical_bias="0.108" />
 
     <TextView
         android:id="@+id/tvYou"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
+        android:layout_marginStart="96dp"
         android:layout_marginTop="8dp"
         android:text="@string/you_txt"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivPlayer" />
+        app:layout_constraintTop_toBottomOf="@+id/ivPlayerHist" />
 
     <TextView
         android:id="@+id/tvComputer"
@@ -61,7 +63,7 @@
         android:layout_marginEnd="72dp"
         android:text="@string/computer_txt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivEnemy" />
+        app:layout_constraintTop_toBottomOf="@+id/ivEnemyHist" />
 
     <TextView
         android:id="@+id/tvOutcome"

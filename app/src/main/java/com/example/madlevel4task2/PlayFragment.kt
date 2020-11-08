@@ -5,16 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_play.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.*
-import kotlin.random.Random
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -23,8 +22,6 @@ class PlayFragment : Fragment() {
 
     private lateinit var playRepository: PlayRepository
     private val mainScope = CoroutineScope(Dispatchers.Main)
-    private val plays = arrayListOf<Play>()
-    private val playAdapter = PlayAdapter(plays)
 
     lateinit var playerAttack: Play.Attack
     lateinit var enemyAttack: Play.Attack
@@ -47,7 +44,8 @@ class PlayFragment : Fragment() {
     }
 
     fun initViews(){
-        btnScissor.setOnClickListener{playScissors()}
+        btnScissor.setOnClickListener{playScissors()
+        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)}
         btnPaper.setOnClickListener{playPaper()}
         btnRock.setOnClickListener{playRock()}
     }
