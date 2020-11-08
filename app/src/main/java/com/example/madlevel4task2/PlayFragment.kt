@@ -1,10 +1,12 @@
 package com.example.madlevel4task2
 
+import com.example.madlevel4task2.Play.Outcome
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_play.*
 import kotlinx.coroutines.CoroutineScope
@@ -25,6 +27,7 @@ class PlayFragment : Fragment() {
 
     lateinit var playerAttack: Play.Attack
     lateinit var enemyAttack: Play.Attack
+
 
 
     override fun onCreateView(
@@ -71,16 +74,52 @@ class PlayFragment : Fragment() {
     fun enemyPlays(){
         val random = (-1..3).random()
 
-        when(random){
-            0 -> ivComputer.setImageResource(R.drawable.rock)
-            0 -> enemyAttack = Play.Attack.ROCK
-
-            1 -> ivComputer.setImageResource(R.drawable.paper)
-            1 -> enemyAttack = Play.Attack.PAPER
-
-            2 -> ivComputer.setImageResource(R.drawable.scissors)
-            2 -> enemyAttack = Play.Attack.SCISSORS
+        if (random == 0){
+            ivComputer.setImageResource(R.drawable.rock)
+            enemyAttack = Play.Attack.ROCK
         }
+        if (random == 1){
+            ivComputer.setImageResource(R.drawable.paper)
+            enemyAttack = Play.Attack.PAPER
+        }
+        if (random == 2){
+            ivComputer.setImageResource(R.drawable.scissors)
+            enemyAttack = Play.Attack.SCISSORS
+        }
+        else{
+            enemyAttack = Play.Attack.ROCK
+        }
+
+        decideWinner()
+    }
+
+    fun decideWinner(): Outcome {
+        if (playerAttack == Play.Attack.ROCK && enemyAttack == Play.Attack.SCISSORS){
+            return Outcome.WIN
+
+        }
+        if (playerAttack == Play.Attack.ROCK && enemyAttack == Play.Attack.PAPER){
+            return Outcome.LOSE
+        }
+
+        if (playerAttack == Play.Attack.PAPER && enemyAttack == Play.Attack.ROCK){
+            return Outcome.WIN
+        }
+        if (playerAttack == Play.Attack.PAPER && enemyAttack == Play.Attack.SCISSORS){
+            return Outcome.LOSE
+        }
+
+        if (playerAttack == Play.Attack.SCISSORS && enemyAttack == Play.Attack.PAPER){
+            return Outcome.WIN
+        }
+        if (playerAttack == Play.Attack.SCISSORS && enemyAttack == Play.Attack.ROCK){
+            return Outcome.LOSE
+        }
+
+        if (playerAttack == enemyAttack){
+            return Outcome.DRAW
+        }
+        return Outcome.DRAW
     }
 
 
