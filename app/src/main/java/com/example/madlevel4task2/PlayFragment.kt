@@ -13,6 +13,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.util.*
 import kotlin.random.Random
 
 /**
@@ -88,6 +89,7 @@ class PlayFragment : Fragment() {
         }
         decideWinner()
         showOutcome()
+        outcomeToDB()
     }
 
     fun decideWinner(): Outcome {
@@ -128,6 +130,14 @@ class PlayFragment : Fragment() {
         }
         if (decideWinner() == Outcome.DRAW){
             tvWinner.text = getString(R.string.draw_txt)
+        }
+    }
+
+    fun outcomeToDB(){
+        mainScope.launch{
+            withContext(Dispatchers.IO){
+                playRepository.insertPlay(Play(null,playerAttack,enemyAttack,decideWinner(), Date()))
+            }
         }
     }
 
