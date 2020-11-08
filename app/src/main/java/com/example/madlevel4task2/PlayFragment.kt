@@ -72,7 +72,7 @@ class PlayFragment : Fragment() {
 
 
     fun enemyPlays(){
-        val random = (-1..3).random()
+        val random = (0..2).random()
 
         if (random == 0){
             ivComputer.setImageResource(R.drawable.rock)
@@ -86,11 +86,8 @@ class PlayFragment : Fragment() {
             ivComputer.setImageResource(R.drawable.scissors)
             enemyAttack = Play.Attack.SCISSORS
         }
-        else{
-            enemyAttack = Play.Attack.ROCK
-        }
-
         decideWinner()
+        showOutcome()
     }
 
     fun decideWinner(): Outcome {
@@ -120,6 +117,18 @@ class PlayFragment : Fragment() {
             return Outcome.DRAW
         }
         return Outcome.DRAW
+    }
+
+    fun showOutcome(){
+        if (decideWinner() == Outcome.WIN){
+            tvWinner.text = getString(R.string.win_txt)
+        }
+        if (decideWinner() == Outcome.LOSE){
+            tvWinner.text = getString(R.string.lose_txt)
+        }
+        if (decideWinner() == Outcome.DRAW){
+            tvWinner.text = getString(R.string.draw_txt)
+        }
     }
 
 

@@ -16,4 +16,7 @@
     <string name="scissors_txt">Scissors</string>
     <string name="rock_txt">Rock</string>
     <string name="paper_txt">Paper</string>
+    <string name="win_txt">YOU WIN!</string>
+    <string name="lose_txt">YOU LOSE!</string>
+    <string name="draw_txt">Its a draw</string>
 </resources>
