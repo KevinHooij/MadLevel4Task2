@@ -23,4 +23,7 @@
     <string name="computer_txt">Computer</string>
     <string name="outcome_txt">Outcome</string>
     <string name="date_txt">Date</string>
+    <string name="prev_text">See previous matches</string>
+    <string name="back_txt">Back</string>
+    <string name="clear_txt">Clear History</string>
 </resources>

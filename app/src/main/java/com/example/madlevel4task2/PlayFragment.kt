@@ -44,10 +44,11 @@ class PlayFragment : Fragment() {
     }
 
     fun initViews(){
-        btnScissor.setOnClickListener{playScissors()
-        findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)}
+        btnScissor.setOnClickListener{playScissors()}
         btnPaper.setOnClickListener{playPaper()}
         btnRock.setOnClickListener{playRock()}
+
+        btnHistory.setOnClickListener{findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)}
     }
 
     fun playScissors(){

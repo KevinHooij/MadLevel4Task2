@@ -40,6 +40,9 @@ class HistoryFragment : Fragment() {
         playRepository = PlayRepository(requireContext())
         getHistory()
         initViews()
+
+        btnBack.setOnClickListener{findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)}
+        btnClear.setOnClickListener{removeHistory()}
     }
 
     fun initViews(){
@@ -59,6 +62,15 @@ class HistoryFragment : Fragment() {
             this@HistoryFragment.playAdapter.notifyDataSetChanged()
         }
 
+    }
+
+    fun removeHistory(){
+        mainScope.launch{
+            withContext(Dispatchers.IO){
+                playRepository.deleteAllProducts()
+            }
+        }
+        getHistory()
     }
 
 }
